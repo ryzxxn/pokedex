@@ -1,13 +1,19 @@
 import Hero from "./components/hero";
-import Pokemon_list from "./components/pokemon_list";
+import PokemonList from "./components/pokemon_list";
 import Search from "./components/search";
 
 export default function Home() {
   return (
     <>
-      <Hero/>
-      <Search/>
-      <Pokemon_list/>
+    <div style={{scrollBehavior:'smooth', height: '100%'}}>
+      <div style={{zIndex: '10'}}>
+        <Hero/>
+      </div>
+      <div id="secondpart" style={{minHeight: '100vh'}}>
+        <Search/>
+        <PokemonList/>
+      </div>
+    </div>
     </>
   );
 }

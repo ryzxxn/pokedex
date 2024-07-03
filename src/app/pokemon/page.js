@@ -1,29 +1,35 @@
 'use client';
 import { CiSearch } from 'react-icons/ci';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
-import Poke_loader from './poke_loader';
+import Link from 'next/link';
+import Poke_loader from '../components/poke_loader';
 
 export default function Pokemon() {
   const [data, setData] = useState(null);
   const [query, setQuery] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     axios
       .get('https://pokeapi.co/api/v2/pokemon?limit=1302')
       .then((response) => {
         setData(response.data);
+        setLoading(false);
       })
       .catch((error) => {
-        console.error(error);
+        setError(error);
+        setLoading(false);
       });
   }, []);
 
-  function handleSearch(query) {
+  const handleSearch = useCallback((query) => {
     setQuery(query.trim()); // strip spaces before and after query
-  }
+  }, []);
 
-  if (!data) return <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '95vh'}}><Poke_loader /></div>;
+  if (loading) return <div><Poke_loader /></div>;
+  if (error) return <div>Error: {error.message}</div>;
 
   return (
     <div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
@@ -36,10 +42,10 @@ export default function Pokemon() {
 function Search({ onSearch }) {
   const [query, setQuery] = useState('');
 
-  function handleSearch(event) {
+  const handleSearch = useCallback((event) => {
     setQuery(event.target.value);
     onSearch(event.target.value);
-  }
+  }, [onSearch]);
 
   return (
     <div
@@ -116,12 +122,7 @@ function Pokemon_list({ data, query }) {
             }}
           >
             <span className="capitalize">{pokemon.name}</span>
-            <a
-              href={`/pokemon/${pokemon.url.split('/').slice(-2)[0]}`}
-              style={{ textDecoration: 'none', color: 'white' }}
-            >
-              View Details
-            </a>
+            <Link href={`/pokemon/${pokemon.url.split('/').slice(-2)[0]}`}>View More</Link>
           </div>
         ))}
     </div>
