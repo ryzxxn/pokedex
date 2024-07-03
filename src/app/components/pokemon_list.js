@@ -86,7 +86,8 @@ const PokemonList = () => {
               );
             })}
           </div>
-          <p style={{color: 'white'}}>{pokemonData.weight} lbs</p>
+          <p style={{color: 'white'}}>Weight: {pokemonData.weight} lbs</p>
+          <p style={{ color: 'white' }}>Height: {pokemonData.height}0 cm</p>
           <img src={pokemonData.image} alt='image' />
         </div>
 

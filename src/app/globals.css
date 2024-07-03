@@ -26,8 +26,7 @@ body{
 
 .canvas-anim{
   animation-name: pokeball-start; /* Name of the animation */
-  animation-duration: 1.4s; /* Duration of the animation */
+  animation-duration: 1s; /* Duration of the animation */
   animation-timing-function: linear;
   animation-fill-mode: forwards;
-  animation-delay: 1s;
 }
