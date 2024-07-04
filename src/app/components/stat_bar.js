@@ -9,7 +9,7 @@ export default function StatBar(props) {
         style={{
           width: `${percent}%`,
           height: '100%',
-          backgroundColor: 'rgb(255,255,255)',
+          backgroundColor: '#fff',
           transition: 'width 0.3s ease-in-out',
           display: 'flex',
           alignItems: 'center',
