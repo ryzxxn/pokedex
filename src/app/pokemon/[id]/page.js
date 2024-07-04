@@ -106,7 +106,7 @@ export default function PokemonPage() {
 
   return (
     <>
-      <div style={{ display: 'flex', width: '100%', padding: '0rem 2rem' }}>
+      <div style={{ display: 'flex', width: '100%', padding: '0rem 2rem' }} className='flex-col md:flex-row'>
         <div key={pokemon.id} style={{ display: 'flex', flex: '1', flexDirection: 'column' }}>
           <h1 style={{ color: 'white', fontSize: '2rem' }}>{pokemon.name.toUpperCase()}</h1>
           <div style={{ display: 'flex', gap: '1rem' }}>
@@ -141,7 +141,8 @@ export default function PokemonPage() {
               </div>
             ))}
           </div>
-
+          
+          <div className='flex-col md:flex-row'>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0rem', padding: '0rem 0rem' }}>
             <h1 style={{ color: 'white', fontSize: '2rem' }}>Moves</h1>
             <input
