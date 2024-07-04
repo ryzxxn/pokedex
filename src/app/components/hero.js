@@ -38,7 +38,7 @@ export default function Hero() {
   return (
     <>
       <div className='flex justify-center items-center h-screen bg-neutral-950'>
-        <p style={{fontSize:"10rem", color: 'white', fontStyle: 'bold', overflowX: 'hidden'}}>POKEDEX</p>
+        <p className='text-center text-white text-7xl md:text-[11rem]'>POKEDEX</p>
         <div onClick={scrollToSecondPart} style={{ position: 'absolute', bottom: '1rem', padding: '2rem', backgroundColor: 'white', borderRadius: '50%', zIndex: '20', cursor: 'pointer'}}>
           <FaArrowDown style={{fontSize: '1.3rem'}} />
         </div>
