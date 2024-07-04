@@ -37,7 +37,7 @@ useGLTF.preload('models/pokeball.glb')
 export default function Hero() {
   return (
     <>
-      <div className='flex justify-center items-center h-screen bg-gradient-to-br from-yellow-200 to-red-500'>
+      <div className='flex justify-center items-center h-screen bg-neutral-9 50'>
         <p className="text-white text-[10rem] font-extrabold">POKEDEX</p>
         <div onClick={scrollToSecondPart} style={{ position: 'absolute', bottom: '1rem', padding: '2rem', backgroundColor: 'white', borderRadius: '50%', zIndex: '20', cursor: 'pointer'}}>
           <FaArrowDown style={{fontSize: '1.3rem'}} />
