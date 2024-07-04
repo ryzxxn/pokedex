@@ -5,6 +5,7 @@ import StatBar from './stat_bar';
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
 import Link from 'next/link';
+import Image from 'next/image';
 
 const PokemonList = () => {
   const [pokemonData, setPokemonData] = useState(null);
@@ -88,7 +89,13 @@ const PokemonList = () => {
           </div>
           <p style={{color: 'white'}}>Weight: {pokemonData.weight} lbs</p>
           <p style={{ color: 'white' }}>Height: {pokemonData.height}0 cm</p>
-          <img src={pokemonData.image} alt='image' />
+          <Image 
+            src={pokemonData.image} // Path to your image
+            alt="Example Image"
+            quality={0}
+            width={500} // Desired width of the image
+            height={300} // Desired height of the image
+          />
         </div>
 
         <div style={{ display: 'flex', flex: '1', flexDirection: 'column', padding: '0rem 2rem', justifyContent: 'start'}}>
