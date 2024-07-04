@@ -47,7 +47,7 @@ const PokemonList = () => {
         <button onClick={handlePrev}><IoIosArrowBack style={{color: 'white', fontSize: '2rem'}} /></button>
         <button onClick={handleNext}><IoIosArrowForward style={{color: 'white', fontSize: '2rem'}} /></button>
       </div>
-      <div style={{display: 'flex', width: '100%', padding: '0rem 2rem'}}>
+      <div style={{display: 'flex', width: '100%', padding: '0rem 2rem'}} className='flex-col md:flex-row'>
         <div key={pokemonData.id} style={{ display: 'flex', flex: '1', flexDirection: 'column'}}>
           <h1 style={{color: 'white', fontSize: '2rem'}}>{pokemonData.name.toUpperCase()}</h1>
           <div style={{ display: 'flex', gap: '1rem' }}>
