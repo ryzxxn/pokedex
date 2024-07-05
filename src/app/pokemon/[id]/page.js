@@ -129,7 +129,7 @@ export default function PokemonPage() {
             transition={{ duration: 1 }}
           >
             <Image
-              src={pokemonData.image} // Path to your image
+              src={pokemon.image} // Path to your image
               alt="Example Image"
               quality={0}
               width={500} // Desired width of the image
