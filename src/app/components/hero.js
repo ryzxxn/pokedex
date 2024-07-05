@@ -2,6 +2,7 @@
 import { Canvas } from '@react-three/fiber';
 import { Environment, Float, OrbitControls, useGLTF } from '@react-three/drei';
 import { FaArrowDown } from "react-icons/fa";
+import { motion } from 'framer-motion'
 
 const scrollToSecondPart = () => {
   document.getElementById('secondpart').scrollIntoView({ behavior: 'smooth' });
@@ -46,15 +47,21 @@ export default function Hero() {
 
       {/* 3D CANVAS OVERLAY */}
       <div className='canvas-anim' style={{ height: '100vh', position: 'absolute', top: '-500px', left: '0px', width: '100%'}}>
-        <Canvas style={{ backgroundColor: 'transparent' }} camera={{ position: [0, 0, 10], fov: 40 }} orthographic={false}>
-          <Environment preset="city" />
+      <Canvas style={{ backgroundColor: 'transparent' }} camera={{ position: [0, 0, 10], fov: 40 }} orthographic={false}>
+        <Environment preset="city" />
 
-          <ambientLight />
-          <Float floatIntensity={2} speed={5}>
+        <ambientLight />
+        <Float floatIntensity={2} speed={5}>
+          <motion.group
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2 }}
+          >
             <Model />
-          </Float>
-          <OrbitControls enableZoom={false} />
-        </Canvas>
+          </motion.group>
+        </Float>
+        <OrbitControls enableZoom={false} />
+      </Canvas>
       </div>
     </>
   )
