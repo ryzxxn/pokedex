@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import StatBar from '@/app/components/stat_bar';
 import Image from 'next/image';
+import { motion } from 'framer-motion'
 
 export default function PokemonPage() {
   const { id } = useParams();
