@@ -98,9 +98,13 @@ const PokemonList = () => {
             <Image
               src={pokemonData.image} // Path to your image
               alt="Example Image"
+              objectFit=''
               quality={0}
               width={500} // Desired width of the image
-              height={300} // Desired height of the image
+              height={500} // Desired height of the image
+              placeholder='blur'
+              blurDataURL='/images/pokeball.png'
+              style={{objectFit: 'contain'}}
             />
           </motion.div>
         </div>
