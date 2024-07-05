@@ -6,6 +6,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
 import Link from 'next/link';
 import Image from 'next/image';
+import { motion } from 'framer-motion'
 
 const PokemonList = () => {
   const [pokemonData, setPokemonData] = useState(null);
@@ -89,13 +90,19 @@ const PokemonList = () => {
           </div>
           <p style={{color: 'white'}}>Weight: {pokemonData.weight} lbs</p>
           <p style={{ color: 'white' }}>Height: {pokemonData.height}0 cm</p>
-          <Image 
-            src={pokemonData.image} // Path to your image
-            alt="Example Image"
-            quality={0}
-            width={500} // Desired width of the image
-            height={300} // Desired height of the image
-          />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
+            <Image
+              src={pokemonData.image} // Path to your image
+              alt="Example Image"
+              quality={0}
+              width={500} // Desired width of the image
+              height={300} // Desired height of the image
+            />
+          </motion.div>
         </div>
 
         <div style={{ display: 'flex', flex: '1', flexDirection: 'column', padding: '0rem 2rem', justifyContent: 'start'}}>

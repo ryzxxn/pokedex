@@ -122,13 +122,19 @@ export default function PokemonPage() {
           </div>
           <p style={{ color: 'white' }}>Weight: {pokemon.weight} lbs</p>
           <p style={{ color: 'white' }}>Height: {pokemon.height}0 cm</p>
-          <Image 
-            src={pokemon.image} // Path to your image
-            alt="Example Image"
-            quality={0}
-            width={500} // Desired width of the image
-            height={300} // Desired height of the image
-          />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
+            <Image
+              src={pokemonData.image} // Path to your image
+              alt="Example Image"
+              quality={0}
+              width={500} // Desired width of the image
+              height={300} // Desired height of the image
+            />
+          </motion.div>
         </div>
 
         <div style={{ display: 'flex', flex: '1', flexDirection: 'column', padding: '0rem 2rem', justifyContent: 'center', gap: '2rem' }}>
