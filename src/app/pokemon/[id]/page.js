@@ -154,7 +154,7 @@ export default function PokemonPage() {
             ))}
           </div>
 
-<div style={{display: 'flex', justifyContent: 'space-between', flex: '1'}}>
+<div style={{display: 'flex', justifyContent: 'space-between', flex: '1', width: '100%'}}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0rem', padding: '0rem 0rem', flex: '1', width: 'max-content' }}>
             <h1 style={{ color: 'white', fontSize: '2rem' }}>Moves</h1>
             <input
@@ -177,7 +177,7 @@ export default function PokemonPage() {
           </div>
 
           <div style={{ color: 'white', flex: '1'}}>
-            <h1 style={{ color: 'white', fontSize: '2rem' }}>Evolution</h1>
+            <h1 style={{ color: 'white', fontSize: '2rem', textAlign: 'center' }}>Evolution</h1>
             {renderEvolutionChain(evolutionChain)}
           </div>
 </div>
