@@ -5,6 +5,7 @@ import { useState, useEffect, useCallback, useMemo } from 'react';
 import StatBar from '@/app/components/stat_bar';
 import Image from 'next/image';
 import { motion } from 'framer-motion'
+import { IoMdArrowDropdown } from "react-icons/io";
 
 export default function PokemonPage() {
   const { id } = useParams();
@@ -86,12 +87,12 @@ export default function PokemonPage() {
     if (!chain) return null;
 
     return (
-      <div>
+      <div style={{display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}}>
         <p className='capitalize'>{chain.species.name}</p>
-        <br/>
+        <IoMdArrowDropdown />
         {chain.evolves_to.map((evolution) => (
           <div key={evolution.species.name}>
-            <p className='capitalize'>
+            <p className='capitalize' style={{textAlign: 'center'}}>
               {evolution.evolution_details[0].trigger.name} at level{' '}
               {evolution.evolution_details[0].min_level}
             </p>
@@ -102,7 +103,7 @@ export default function PokemonPage() {
     );
   };
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <div></div>;
   if (error) return <div>Error: {error.message}</div>;
 
   return (
@@ -131,26 +132,30 @@ export default function PokemonPage() {
             <Image
               src={pokemon.image} // Path to your image
               alt="Example Image"
+              objectFit=''
               quality={0}
               width={500} // Desired width of the image
-              height={300} // Desired height of the image
+              height={500} // Desired height of the image
+              placeholder='blur'
+              blurDataURL='/images/pokeball.png'
+              style={{objectFit: 'contain'}}
             />
           </motion.div>
         </div>
 
-        <div style={{ display: 'flex', flex: '1', flexDirection: 'column', padding: '0rem 2rem', justifyContent: 'center', gap: '2rem' }}>
-          <div>
+        <div style={{ display: 'flex', flex: '1', flexDirection: 'column', padding: '0rem 0rem', justifyContent: 'center', gap: '1rem' , alignItems: 'center'}}>
+          <div style={{width: '100%', display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
             <h1 style={{ color: 'white', fontSize: '2rem' }}>Stats</h1>
             {pokemon.stats.map((stat) => (
-              <div key={stat.stat.name} style={{ color: 'white' }}>
-                {stat.stat.name.toUpperCase()} {stat.base_stat}
+              <div key={stat.stat.name} style={{ color: 'white', width:'100%', }}>
+                {stat.stat.name.toUpperCase()}: {stat.base_stat}
                 <StatBar percent={(stat.base_stat / 255) * 100} />
               </div>
             ))}
           </div>
 
-<div style={{display: 'flex', justifyContent: 'space-between'}}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0rem', padding: '0rem 0rem' }}>
+<div style={{display: 'flex', justifyContent: 'space-between', flex: '1'}}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0rem', padding: '0rem 0rem', flex: '1', width: 'max-content' }}>
             <h1 style={{ color: 'white', fontSize: '2rem' }}>Moves</h1>
             <input
               type="text"
@@ -171,7 +176,7 @@ export default function PokemonPage() {
             </ul>
           </div>
 
-          <div style={{ color: 'white' }}>
+          <div style={{ color: 'white', flex: '1'}}>
             <h1 style={{ color: 'white', fontSize: '2rem' }}>Evolution</h1>
             {renderEvolutionChain(evolutionChain)}
           </div>
