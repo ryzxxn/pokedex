@@ -102,7 +102,7 @@ function Pokemon_list({ data, query }) {
     >
       {filteredData.length > 0 &&
         filteredData.map((pokemon) => (
-          <a href={`/pokemon/${pokemon.url.split('/').slice(-2)[0]}`} style={{ textDecoration: 'none', color: 'white' }}>
+          <a key={pokemon.name} href={`/pokemon/${pokemon.url.split('/').slice(-2)[0]}`} style={{ textDecoration: 'none', color: 'white' }}>
           <div
             key={pokemon.name}
             style={{
