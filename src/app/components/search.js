@@ -102,6 +102,7 @@ function Pokemon_list({ data, query }) {
     >
       {filteredData.length > 0 &&
         filteredData.map((pokemon) => (
+          <a href={`/pokemon/${pokemon.url.split('/').slice(-2)[0]}`} style={{ textDecoration: 'none', color: 'white' }}>
           <div
             key={pokemon.name}
             style={{
@@ -116,13 +117,8 @@ function Pokemon_list({ data, query }) {
             }}
           >
             <span className="capitalize">{pokemon.name}</span>
-            <a
-              href={`/pokemon/${pokemon.url.split('/').slice(-2)[0]}`}
-              style={{ textDecoration: 'none', color: 'white' }}
-            >
-              View Details
-            </a>
           </div>
+          </a>
         ))}
     </div>
   );
