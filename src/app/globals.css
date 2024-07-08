@@ -2,31 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
-
-@layer base {
-  :root {
-    --font-rubik-mono-one: 'Rubik Mono One';
-    scroll-behavior: smooth;
-  }
-}
-
 body{
+  width: 100%;
+  margin: 0px;
+  transition: 200ms;
+  user-select: none;
   background-color: rgb(19,19,19);
-  scroll-behavior: smooth;
 }
 
-@keyframes pokeball-start {
-  0% {top: -400px;}
-  25% {top: -300px;}
-  50% {top: -200px;}
-  75% {top: -100px;}
-  100% {top: 0px;}
+::-webkit-scrollbar {
+  width: .3rem; /* Width of the scrollbar */
 }
 
-.canvas-anim{
-  animation-name: pokeball-start; /* Name of the animation */
-  animation-duration: 1s; /* Duration of the animation */
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
+::-webkit-scrollbar-track {
+  background: #f1f1f100; /* Background of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffffff; /* Color of the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff; /* Color of the scrollbar thumb on hover */
 }
