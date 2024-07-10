@@ -63,10 +63,6 @@ export default function Page({params}: {params:{id:number}}) {
     fetchCurrentPokemon();
   }, []);
 
-  useEffect(() => {
-    const response2 = axios.get<PokemonData>(`https://pokeapi.co/api/v2/pokemon/${Number.parseInt(id) + 1}`);
-  }, []);
-
   const handleDecrement = () => {
     const newId = parseInt(pokemonId) - 1;
     if (newId > 0) {
