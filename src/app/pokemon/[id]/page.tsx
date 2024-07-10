@@ -8,7 +8,6 @@ import { FaWeightHanging } from 'react-icons/fa6';
 import { MdHeight } from 'react-icons/md';
 import { FaArrowLeft } from 'react-icons/fa';
 import { FaArrowRight } from 'react-icons/fa';
-import Searchbar from '@/app/components/searchbar';
 import { motion } from 'framer-motion';
 
 interface PokemonData {
@@ -45,7 +44,6 @@ const MotionImage = motion(Image)
 export default function Page({params}: {params:{id:number}}) {
   const { id } = useParams();
   const pokeid = id.toString().padStart(3, '0');
-  // const pokeid_plus = params.id + 1;
   const pokemonId = Array.isArray(id) ? id[0] : id;
   const router = useRouter();
   const [pokemonData, setPokemonData] = useState<PokemonData | null>(null);
@@ -57,16 +55,17 @@ export default function Page({params}: {params:{id:number}}) {
       try {
         const response = await axios.get<PokemonData>(`https://pokeapi.co/api/v2/pokemon/${id}`);
         setPokemonData(response.data);
-
         // After fetching current Pokemon, start fetching next Pokemon (pokeid + 1)
       } catch (error) {
         console.error(error);
       }
     };
-
-
     fetchCurrentPokemon();
-  }, [pokemonId]);
+  }, []);
+
+  useEffect(() => {
+    const response2 = axios.get<PokemonData>(`https://pokeapi.co/api/v2/pokemon/${Number.parseInt(id) + 1}`);
+  }, []);
 
   const handleDecrement = () => {
     const newId = parseInt(pokemonId) - 1;
@@ -106,7 +105,7 @@ export default function Page({params}: {params:{id:number}}) {
         <div className='rounded p-6 w-[90%] md:w-[30rem]'>
           {pokemonData ? (
             <div className='flex flex-col transition-all'>
-              <p className='capitalize text-2xl'>{pokemonData.name}</p>
+              {/* <p className='capitalize text-2xl'>{pokemonData.name}</p> */}
               <div className='flex flex-row justify-center'>
                 {!imageLoaded && (
                   <>
@@ -119,7 +118,7 @@ export default function Page({params}: {params:{id:number}}) {
                     <MotionImage
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ duration: 2 }}
+                  transition={{ duration: 1 }}
                     className='w-[15rem] h-[15rem]'
                     quality={0}
                     priority
@@ -142,6 +141,7 @@ export default function Page({params}: {params:{id:number}}) {
                 />
                 </div>
               </div>
+              <p className='capitalize text-2xl'>{pokemonData.name}</p>
               <div>
                 <div className='flex gap-3'>
                   {pokemonData.types.map((type) => (
