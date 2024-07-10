@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function page() {
 
-    var pokemon = memoryState.getState('pokemon')
+    var pokemon = memoryState.getState('AllPokemon')
     console.log(pokemon);
     
   return (
