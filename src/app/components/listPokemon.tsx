@@ -22,7 +22,7 @@ export default function ListPokemon() {
                 // Extract the ID from the URL using a regular expression
                 const id = item.url.match(/\/(\d+)\/$/)[1];
                 return (
-                    <Link href={`/pokemon/${id}`}>
+                    <Link key={index} href={`/pokemon/${id}`}>
                       <div className="flex flex-row p-2 text-white cursor-pointer hover:bg-[rgb(30,30,30)] justify-center items-center gap-8 w-[auto]">
                         <div>
                           <p className="capitalize font-mono">{item.name}</p>
@@ -42,7 +42,7 @@ export default function ListPokemon() {
               {pokemonData.slice(0, numItemsToShow).map((item: any, index: number) => {
                 const id = item.url.match(/\/(\d+)\/$/)[1];
                 return (
-                  <div className='flex justify-center'>
+                  <div key={index} className='flex justify-center'>
                   <Image
                     key={index}
                     src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`}
