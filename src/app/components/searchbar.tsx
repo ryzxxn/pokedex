@@ -51,7 +51,7 @@ export default function Searchbar() {
 
   return (
     <div className="flex flex-col items-center w-full p-4 justify-center md:flex-col">
-      <div className="flex items-center bg-transparent w-4/5 p-2 gap-2 flex-row-reverse border-b-[.1rem] border-gray-300">
+      <div className="flex items-center bg-transparent w-4/5 p-0 gap-2 flex-row-reverse border-b-[.1rem] border-gray-300">
         <CiSearch className="text-white font-bold" />
         <input
           className=" outline-none w-full font-mono text-white bg-transparent"

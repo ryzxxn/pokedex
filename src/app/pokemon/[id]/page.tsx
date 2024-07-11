@@ -114,7 +114,7 @@ export default function Page({params}: {params:{id:number}}) {
                     <MotionImage
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ duration: 1 }}
+                  transition={{ duration: .4 }}
                     className='w-[15rem] h-[15rem]'
                     quality={0}
                     priority
