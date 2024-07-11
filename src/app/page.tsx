@@ -32,8 +32,8 @@ export default function Home() {
   return (
     <>
     <div>
-      <Searchbar/>
-      <ListPokemon/>
+      {/* <Searchbar/> */}
+      <ListPokemon />
     </div>
     </>
   );
