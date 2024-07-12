@@ -10,14 +10,14 @@ export default function Hero() {
   return (
     <>
     <div className='h-screen'>
-        <Canvas style={{ backgroundColor: 'transparent' }} camera={{ position: [0, 0, 10], fov: 40 }} orthographic={false}>
+        <Canvas style={{ backgroundColor: 'white' }} camera={{ position: [0, 0, 10], fov: 40 }} orthographic={false}>
           <Environment preset="city" />
 
           <ambientLight />
           <Float floatIntensity={2} speed={5}>
               <Model />
           </Float>
-          <OrbitControls enableZoom={false} />
+          {/* <OrbitControls enableZoom={false}  enablePan={false} /> */}
         </Canvas>
     </div>
     </>
