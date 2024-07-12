@@ -2,7 +2,7 @@
 import React from 'react'
 import { Environment, Float, OrbitControls } from '@react-three/drei'
 import {Model} from './model'
-import { MotionCanvas } from 'framer-motion-3d'
+import { Canvas } from '@react-three/fiber'
 
 
 export default function Hero() {
@@ -10,7 +10,7 @@ export default function Hero() {
   return (
     <>
     <div className='h-screen'>
-        <MotionCanvas style={{ backgroundColor: 'transparent' }} camera={{ position: [0, 0, 10], fov: 40 }} orthographic={false}>
+        <Canvas style={{ backgroundColor: 'transparent' }} camera={{ position: [0, 0, 10], fov: 40 }} orthographic={false}>
           <Environment preset="city" />
 
           <ambientLight />
@@ -18,7 +18,7 @@ export default function Hero() {
               <Model />
           </Float>
           <OrbitControls enableZoom={false} />
-        </MotionCanvas>
+        </Canvas>
     </div>
     </>
   )
