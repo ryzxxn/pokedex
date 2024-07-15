@@ -37,8 +37,6 @@ export default function Home() {
         src='/pokedex.svg'
         height={0}
         width={300}
-        className="h-[3rem]"
-        priority
         />
     </div>
     <Searchbar/>

@@ -108,8 +108,10 @@ export default function PokemonList() {
                 className='scale-150'
                 alt={pokemon.name}
                 src={`https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/${paddedId}.png`}
-                height={150}
-                width={150}
+                height={500}
+                width={500}
+                quality={0}
+                priority
               />
               <div className='flex justify-center z-10 pt-5'>
                 <p className='text-white capitalize' style={{ textShadow: '0rem 0rem .4rem rgb(0,0,0,.800)' }}>{pokemon.name}</p>
@@ -129,16 +131,22 @@ export default function PokemonList() {
   }, []);
 
   const handleMoreClick = () => {
-    setOffset(prevOffset => prevOffset + 10);
-  };
+  const newOffset = offset + 10;
+  if (newOffset <= 1302) {
+    setOffset(newOffset);
+  }
+};
+  
 
   return (
-    <div>
-      <div className='grid-cols-2 p-5 md:grid grid-cols-5 place-items-center gap-5'>
-        {pokemonList.slice(offset, offset + 10)}
+    <div className='h-full flex flex-1 flex-col'>
+      <div className='grid h-full flex-1 p-4 place-items-center grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 transition-all'>
+        {pokemonList.slice(offset, offset + 18)}
       </div>
       {offset + 10 < pokemonList.length && (
+        <div className='flex flex-row justify-center'>
           <button className='px-2 py-1 rounded bg-blue-500 text-white' onClick={handleMoreClick}>More</button>
+        </div>
       )}
     </div>
   );
