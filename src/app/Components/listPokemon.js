@@ -75,7 +75,7 @@ function ListPokemon() {
       })}
       <div className='absolute bottom-0'>
         <button className='absolute bottom-4 bg-[rgb(41,41,41)] p-2 rounded text-white text-nowrap z-10' onClick={handleShowMore} disabled={loading}>
-            {loading ? 'Loading...' : 'Show More'}
+            {loading ? <img className='h-auto w-auto' src='/pikachu.gif' alt=''></img> : 'Show More'}
         </button>
       </div>
     </div>
