@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 function ListPokemon() {
   const [pokemonData, setPokemonData] = useState([]);
@@ -57,7 +58,7 @@ function ListPokemon() {
       {pokemonData.map(pokemon => {
         const gradient = pokemon.types && typeGradients[pokemon.types[0].type.name];
         return (
-          <div key={pokemon.id} style={{ backgroundImage: gradient }} className='flex flex-col p-2 min-w-[6rem] rounded gap-4 max-w-[6rem] justify-center select-none cursor-pointer'>
+          <a href={`/pokemon/${pokemon.id}`} key={pokemon.id} style={{ backgroundImage: gradient }} className='flex flex-col p-2 min-w-[6rem] rounded gap-4 max-w-[6rem] justify-center select-none cursor-pointer'>
             <Image
               className='scale-[150%] sm:scale-[180%]'
               alt={pokemon.name}
@@ -70,7 +71,7 @@ function ListPokemon() {
             <div className='flex justify-center z-10 pt-5'>
               <p className='text-white capitalize' style={{ textShadow: '0rem 0rem .4rem rgb(0,0,0,.800)' }}>{pokemon.name}</p>
             </div>
-          </div>
+          </a>
         );
       })}
       <div className='absolute bottom-0'>
